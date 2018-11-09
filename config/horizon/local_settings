@@ -176,7 +176,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 OPENSTACK_HOST = "192.168.142.254"
 
-OPENSTACK_KEYSTONE_URL = "http://192.168.142.254:5000/v3"
+OPENSTACK_KEYSTONE_URL = "http://10.168.142.254:5000/v3"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
 # Enables keystone web single-sign-on if set to True.
