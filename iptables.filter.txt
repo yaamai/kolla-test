@@ -1,4 +1,4 @@
-Chain INPUT (policy ACCEPT 3631K packets, 1750M bytes)
+Chain INPUT (policy ACCEPT 391K packets, 114M bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
 Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
@@ -10,7 +10,7 @@ Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
     0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
     0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
 
-Chain OUTPUT (policy ACCEPT 3561K packets, 1054M bytes)
+Chain OUTPUT (policy ACCEPT 388K packets, 119M bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
 Chain DOCKER (1 references)

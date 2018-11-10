@@ -1,18 +1,18 @@
-Chain PREROUTING (policy ACCEPT 4 packets, 776 bytes)
+Chain PREROUTING (policy ACCEPT 351 packets, 89532 bytes)
  pkts bytes target     prot opt in     out     source               destination         
-  384 23040 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:3300 to:192.168.142.254:3300
-  118  7080 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5000 to:192.168.142.254:5000
-   82  4920 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 to:192.168.142.254:80
-   91  5460 DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+   69  4140 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5000 to:192.168.142.254:5000
+  142  8520 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:3300 to:192.168.142.254:3300
+    5   328 DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
 
-Chain INPUT (policy ACCEPT 23 packets, 1380 bytes)
+Chain INPUT (policy ACCEPT 326 packets, 56408 bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
-Chain OUTPUT (policy ACCEPT 43 packets, 2580 bytes)
+Chain OUTPUT (policy ACCEPT 1921 packets, 127K bytes)
  pkts bytes target     prot opt in     out     source               destination         
- 6384  394K DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+    1    60 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:3300 to:192.168.142.254:3300
+ 1253 75100 DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
 
-Chain POSTROUTING (policy ACCEPT 43 packets, 2580 bytes)
+Chain POSTROUTING (policy ACCEPT 1922 packets, 127K bytes)
  pkts bytes target     prot opt in     out     source               destination         
     0     0 MASQUERADE  all  --  *      !docker0  172.17.0.0/16        0.0.0.0/0           
 
