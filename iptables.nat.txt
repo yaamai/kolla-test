@@ -1,0 +1,21 @@
+Chain PREROUTING (policy ACCEPT 4 packets, 776 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  384 23040 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:3300 to:192.168.142.254:3300
+  118  7080 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5000 to:192.168.142.254:5000
+   82  4920 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 to:192.168.142.254:80
+   91  5460 DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+
+Chain INPUT (policy ACCEPT 23 packets, 1380 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 43 packets, 2580 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 6384  394K DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+
+Chain POSTROUTING (policy ACCEPT 43 packets, 2580 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MASQUERADE  all  --  *      !docker0  172.17.0.0/16        0.0.0.0/0           
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  docker0 *       0.0.0.0/0            0.0.0.0/0           

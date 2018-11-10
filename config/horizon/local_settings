@@ -35,12 +35,12 @@ ALLOWED_HOSTS = ['*']
 # and don't forget to strip it from the client's request.
 # For more information see:
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # If Horizon is being served through SSL, then uncomment the following two
 # settings to better secure the cookies from security exploits
-#CSRF_COOKIE_SECURE = True
-#SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 
 # The absolute path to the directory where message files are collected.
@@ -176,7 +176,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 OPENSTACK_HOST = "192.168.142.254"
 
-OPENSTACK_KEYSTONE_URL = "http://10.168.142.254:5000/v3"
+OPENSTACK_KEYSTONE_URL = "https://10.168.142.1:5000/v3"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
 # Enables keystone web single-sign-on if set to True.
@@ -215,7 +215,7 @@ WEBSSO_CHOICES = (
 #}
 
 # Disable SSL certificate checks (useful for self-signed certificates):
-#OPENSTACK_SSL_NO_VERIFY = True
+OPENSTACK_SSL_NO_VERIFY = True
 
 # The CA certificate to use to verify SSL connections
 #OPENSTACK_SSL_CACERT = '/path/to/cacert.pem'
@@ -501,7 +501,7 @@ LOGGING = {
         },
         'console': {
             # Set the level to "DEBUG" for verbose output logging.
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
         },
         'operation': {
@@ -518,7 +518,7 @@ LOGGING = {
             'propagate': False,
         },
         'requests': {
-            'handlers': ['null'],
+            'handlers': ['console'],
             'propagate': False,
         },
         'horizon': {
